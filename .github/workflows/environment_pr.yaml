@@ -12,14 +12,22 @@ jobs:
   check_change:
     name: Plan env update
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
     - uses: actions/checkout@master
     - name: Plan update vs running env
       id: plan-environment
-      uses: TomerAdmon/torque-plan-environment@b3683163a31e196f6b9b72d1dbfec2064b09a3ce
+      uses: TomerAdmon/torque-plan-environment@68b509d9526d374ffe1159e4aa34cbb4cc7ce025
       with:
         space: Production
         torque_token: ${{ secrets.TORQUE_TOKEN }}
         environment_id: R8t2T78FG1hS
         torque_hostname: https://review3.qualilabs.net/
         env_file_path: environments/dev.yaml
+    - uses: mshick/add-pr-comment@v2
+      with:
+        message: |
+          **🚀🚀Torque PR results🚀🚀**
+          ${{ steps.plan-environment.outputs.plan_result }}
+          For more information: https://review3.qualilabs.net/Production/sandboxes/R8t2T78FG1hS/devops
