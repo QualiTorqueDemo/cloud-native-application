@@ -1,6 +1,18 @@
 spec_version: 2
 description: 'View App Workloads by app name | Connect to existing applications on ArgoCD server'
 
+outputs:
+  Argo Server:
+    value: https://argocd-dev.qualilabs.net/
+    kind: link
+    quick: true
+  Argo User:
+    value: admin
+    quick: false
+  Argo Password:
+    value: qualidev
+    quick: false
+
 inputs:
   infra-app-name:
     default: sveta-s3-upbound
