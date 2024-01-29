@@ -1,6 +1,18 @@
 spec_version: 2
 description: 'ArgoCD | Create Nginx App'
 
+outputs:
+  Argo Server:
+    value: https://argocd-dev.qualilabs.net/
+    kind: link
+    quick: true
+  Argo User:
+    value: admin
+    quick: false
+  Argo Password:
+    value: qualidev
+    quick: false
+    
 inputs:
   agent:
     default: dev-playground-eks
