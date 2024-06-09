@@ -4,7 +4,7 @@ description: 'ArgoCD | Create Nginx App'
 outputs:
   Argo Server:
     value: https://argocd-dev.qualilabs.net/
-    kind: link
+    kind: linke
     quick: true
   Argo User:
     value: admin
@@ -15,7 +15,7 @@ outputs:
     
 inputs:
   agent:
-    default: dev-playground-eks
+    default: demo-prod
     type: agent
 
 grains:
